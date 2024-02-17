@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
@@ -18,13 +19,16 @@ class MainActivity : AppCompatActivity() {
 
 //        viewkomponen.text = count.toString()
 
-        viewkomponen.text = ViewModel.count.toString()
+//        viewkomponen.text = ViewModel.count.toString()
+        ViewModel.count.observe(this, Observer{
+            viewkomponen.text = it.toString()
+        })
         tombol.setOnClickListener(){
 //            ++count
 //            viewkomponen.text = count.toString()
 
             ViewModel.updateCount()
-            viewkomponen.text = ViewModel.count.toString()
+//            viewkomponen.text = ViewModel.count.toString()
         }
     }
 }
