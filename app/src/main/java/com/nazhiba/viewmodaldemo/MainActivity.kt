@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         val tombol = findViewById<Button>(R.id.btncount)
 
 //        viewkomponen.text = count.toString()
-
 //        viewkomponen.text = ViewModel.count.toString()
+
         ViewModel.count.observe(this, Observer{
             viewkomponen.text = it.toString()
         })
